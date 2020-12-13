@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "Detalji";
+}
+@model RS1_Faktura.Models.FakturaDetaljiVM
+<h1>Detalji</h1>
+FakturaID @Model.FakturaID<br/>
+datum @Model.Datum <br/>
+klijent @Model.Klijent
+
+
+<div id="ajaxDiv">
+
+</div>
+
+<script>
+
+    $.get("/Stavka/Index?FakturaID=@Model.FakturaID", function(d){
+        $("#ajaxDiv").html(d);
+    })
+
+</script>

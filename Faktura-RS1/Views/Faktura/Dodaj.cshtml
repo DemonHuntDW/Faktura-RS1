@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "Dodaj";
+}
+@model RS1_Faktura.ViewModels.FakturaDodajVM
+<h1>Dodaj</h1>
+
+<form asp-action="Snimi">
+    <label>Klijent</label>
+    <select asp-for="KlijentID" asp-items="Model.KlijentStavke"></select>
+    
+    <label>Datum</label>
+    <input asp-for="datum"/>
+
+    <label>Ponuda</label>
+    <select asp-for="PonudaID" asp-items="Model.PonudaStavke"></select>
+    
+    <input type="submit" value="Snimi"/>
+</form>

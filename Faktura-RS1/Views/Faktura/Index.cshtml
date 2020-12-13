@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@model RS1_Faktura.ViewModels.FakturaPrikazVM
+<h1>Index</h1>
+
+
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>FakturaID</th>
+        <th>Datum</th>
+        <th>Klijent</th>
+        <th>
+            Akcija
+        </th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    @foreach (var x in Model.rows)
+    {
+        <tr>
+            <td>@x.FakturaID</td>
+            <td>@x.Datum</td>
+            <td>@x.Klijent</td>
+            <td>
+                @*<a class="btn btn-warning" href="/Faktura/Obrisi?FakturaID=@x.FakturaID">Obrisi</a>
+                <br/>*@
+                <a class="btn btn-warning" asp-action="Obrisi" asp-route-FakturaID="@x.FakturaID">Obrisi</a>
+                <a class="btn btn-warning" asp-action="Detalji" asp-route-FakturaID="@x.FakturaID">Detalji</a>
+            </td>
+
+        </tr>
+    }
+
+    </tbody>
+</table>
+
+
+<a class="btn btn-warning" href="/Faktura/Dodaj">Dodaj</a>
+
