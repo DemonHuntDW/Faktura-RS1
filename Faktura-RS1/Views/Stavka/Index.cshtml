@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout= null;
+}
+@model RS1_Faktura.ViewModels.StavkaIndexVM
+<h1>Index</h1>
+
+
+<table class="table table-bordered">
+    
+    <thead>
+    <tr>
+        <th>NazivProizvoda</th>
+        <th>Cijena</th>
+        <th>Kolicina</th>
+        <th>Popust</th>
+        <th>Iznos</th>
+        <th></th>
+</tr>
+    </thead>
+    @foreach (var x in Model.rows)
+    {
+        <tr>
+            <td>@x.NazivProizvoda</td>
+            <td>@x.Cijena</td>
+            <td>@x.Kolicina</td>
+            <td>@x.Popust</td>
+            <td>@x.Iznos</td>
+            <td>
+                <button onclick="StavkaObrisi(@x.StavkaID)">Obrisi</button><br/>
+                <button onclick="StavkaUredi(@x.StavkaID)">Uredi</button>
+            </td>
+        </tr>
+    }
+</table>
+
+<button onclick="StavkaDodaj(@Model.FakturaID)">Dodaj stavku</button>
