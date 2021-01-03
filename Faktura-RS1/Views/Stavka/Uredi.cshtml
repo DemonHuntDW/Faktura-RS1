@@ -1,0 +1,25 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+*@
+@{
+}
+@model RS1_Faktura.ViewModels.StavkaUrediVM
+
+
+<form id="StavkaForma">
+    FakturaID
+    <input asp-for="FakturaID" readonly /><br />
+
+    StavkaID
+    <input asp-for="StavkaID" readonly /><br />
+
+    Proizvod
+    <select asp-for="ProizvodID" asp-items="Model.ProizvodStavke">
+    </select><br />
+
+    Kolicina
+    <input asp-for="Kolicina" /><br />
+
+</form>
+<button onclick="StavkaSnimi()">Snimi</button>
