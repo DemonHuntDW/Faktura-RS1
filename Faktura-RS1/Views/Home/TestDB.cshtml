@@ -1,0 +1,14 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model RS1_Faktura.EF.MojContext
+Faktura count: @Model.Faktura.Count()
+<br />
+Proizvod count: @Model.Proizvod.Count()
+<br />
+Ponuda count: @Model.Ponuda.Count()
+<br />
+Ponuda koja nije fakturisana count: @Model.Ponuda.Count(p => p.FakturaId==null)
+<br />
