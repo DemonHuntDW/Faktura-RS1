@@ -81,24 +81,29 @@ namespace RS1_Faktura.Controllers
 
         public string Snimi(StavkaUrediVM x)
         {
-            FakturaStavka stavka;
-            if (x.StavkaID == 0)
-            {
-                //dodavanje
-                stavka = new FakturaStavka();
-                stavka.FakturaId = x.FakturaID;
-            }
-            else
-            {
-                //edit
-                stavka = _database.FakturaStavka.Find(x.StavkaID);
-            }
-            
-            stavka.Kolicina = x.Kolicina;
-            stavka.ProizvodId = x.ProizvodID;
-            _database.SaveChanges();
+           FakturaStavka stavka;
+			if (x.StavkaID == 0)
+			{
+				//dodavanje
+				stavka = new FakturaStavka();
+				stavka.FakturaId = x.FakturaID;
+				stavka.kolicina = (int)x.Kolicina;
+				stavka.ProizvodID = x.ProizvodID;
+				konekcija.FakturaStavka.Add(stavka);
 
-            return "OK";
+			}
+			else
+			{
+				//edit
+				stavka = konekcija.FakturaStavka.Find(x.StavkaID);
+				stavka.kolicina = (int)x.Kolicina;
+				stavka.ProizvodID = x.ProizvodID;
+			}
+
+			
+			konekcija.SaveChanges();
+
+			return "OK";
         }
 
 
